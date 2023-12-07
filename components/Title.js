@@ -4,9 +4,17 @@ import React from "react";
 export default function Title() {
   return (
     <View>
-      <Text>Title</Text>
+      <Text style={styles.title}>Guess Number Application</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    borderWidth: 1,
+    borderColor: "red",
+    fontSize: 25,
+    borderRadius: 20,
+    padding: 15,
+  },
+});
