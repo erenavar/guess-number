@@ -13,13 +13,19 @@ export default function App() {
     <View style={styles.container}>
       <Title />
       <View style={styles.start}>
-        <TouchableOpacity>
-          <Text>Clear</Text>
-        </TouchableOpacity>
-        <TextInput style={styles.input} />
-        <TouchableOpacity>
-          <Text>Approve</Text>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity>
+            <Text>Clear</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.input}>
+          <TextInput />
+        </View>
+        <View style={{ verticalAlign: "top" }}>
+          <TouchableOpacity>
+            <Text>Approve</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -34,6 +40,9 @@ const styles = StyleSheet.create({
   },
   start: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
   },
   input: {
     borderBottomWidth: 1,
