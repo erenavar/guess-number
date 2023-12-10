@@ -5,17 +5,22 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Title from "../components/Title";
 
 export default function GameScreen() {
+  const [number, setNumber] = useState();
+  const clearNumber = () => {
+    setNumber();
+  };
+
   return (
     <View>
       <View style={styles.title}>
         <Title />
       </View>
       <View style={styles.start}>
-        <TouchableOpacity style={styles.clear} >
+        <TouchableOpacity style={styles.clear} onPress={clearNumber}>
           <Text>Clear</Text>
         </TouchableOpacity>
 
@@ -23,6 +28,8 @@ export default function GameScreen() {
           style={styles.input}
           maxLength={2}
           keyboardType="number-pad"
+          value={number}
+          onChangeText={(text) => setNumber(text)}
         />
 
         <TouchableOpacity style={styles.approve}>
