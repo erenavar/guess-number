@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function GamePage() {
+export default function ResultScreen() {
   return (
     <View>
-      <Text>GamePage</Text>
+      <Text>ResultPage</Text>
     </View>
   );
 }
