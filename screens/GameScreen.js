@@ -14,6 +14,14 @@ export default function GameScreen() {
     setNumber();
   };
 
+  const confirmNumber = () => {
+    if (number > 0) {
+    } else {
+      alert("Text a Positive Number");
+      clearNumber();
+    }
+  };
+
   return (
     <View>
       <View style={styles.title}>
@@ -32,7 +40,7 @@ export default function GameScreen() {
           onChangeText={(text) => setNumber(text)}
         />
 
-        <TouchableOpacity style={styles.approve}>
+        <TouchableOpacity style={styles.approve} onPress={confirmNumber}>
           <Text>Approve</Text>
         </TouchableOpacity>
       </View>
