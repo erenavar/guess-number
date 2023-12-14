@@ -15,9 +15,9 @@ export default function GameScreen() {
   };
 
   const confirmNumber = () => {
-    if (number > 0) {
+    if (number > 0 && number < 100) {
     } else {
-      alert("Text a Positive Number");
+      alert("Text a Number Between 0 and 100");
       clearNumber();
     }
   };
