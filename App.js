@@ -12,6 +12,7 @@ export default function App() {
         source={require("./assets/back.jpg")}
         style={styles.image}
         resizeMode="stretch"
+        imageStyle={{ opacity: 0.3 }}
       >
         <GameScreen />
       </ImageBackground>
