@@ -5,9 +5,11 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
 import Title from "../components/Title";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function GameScreen() {
   const [number, setNumber] = useState();
@@ -26,28 +28,37 @@ export default function GameScreen() {
   };
 
   return (
-    <View>
-      <View style={styles.title}>
-        <Title />
-      </View>
-      <View style={styles.start}>
-        <TouchableOpacity style={styles.clear} onPress={clearNumber}>
-          <Text>Clear</Text>
-        </TouchableOpacity>
+    <LinearGradient
+      style={styles.container}
+      colors={["rgba(0,0,0,0.8)", "transparent"]}
+    >
+      <ImageBackground
+        source={require("../assets/back.jpg")}
+        style={styles.image}
+        resizeMode="stretch"
+        imageStyle={{ opacity: 0.3 }}
+      >
+        <View style={styles.title}>
+          <Title />
+        </View>
+        <View style={styles.start}>
+          <TouchableOpacity style={styles.clear} onPress={clearNumber}>
+            <Text>Clear</Text>
+          </TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            maxLength={2}
+            keyboardType="number-pad"
+            value={number}
+            onChangeText={(text) => setNumber(text)}
+          />
 
-        <TextInput
-          style={styles.input}
-          maxLength={2}
-          keyboardType="number-pad"
-          value={number}
-          onChangeText={(text) => setNumber(text)}
-        />
-
-        <TouchableOpacity style={styles.approve} onPress={confirmNumber}>
-          <Text>Approve</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+          <TouchableOpacity style={styles.approve} onPress={confirmNumber}>
+            <Text>Approve</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    </LinearGradient>
   );
 }
 
@@ -84,5 +95,8 @@ const styles = StyleSheet.create({
   approve: {
     marginTop: 80,
     left: 25,
+  },
+  image: {
+    flex: 1,
   },
 });
