@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import Title from "../components/Title";
@@ -17,7 +18,9 @@ export default function GameScreen() {
   const confirmNumber = () => {
     if (number > 0 && number < 100) {
     } else {
-      alert("Text a Number Between 0 and 100");
+      Alert.alert("Invalid Number", "Text a Number Between 0 and 100", [
+        { text: "Ok", style: "cancel", onPress: clearNumber },
+      ]);
       clearNumber();
     }
   };
