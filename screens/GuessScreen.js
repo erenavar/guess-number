@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import GameScreen from "./GameScreen";
 
-export default function GuessScreen() {
+export default function GuessScreen({ route }) {
+  const { number } = route.params;
+
   return (
     <View>
-      <Text>GuessScreen</Text>
+      <Text>{number}</Text>
     </View>
   );
 }

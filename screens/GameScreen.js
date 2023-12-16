@@ -11,7 +11,7 @@ import React, { useState } from "react";
 import Title from "../components/Title";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function GameScreen() {
+export default function GameScreen({ navigation }) {
   const [number, setNumber] = useState();
   const clearNumber = () => {
     setNumber();
@@ -19,6 +19,7 @@ export default function GameScreen() {
 
   const confirmNumber = () => {
     if (number > 0 && number < 100) {
+      navigation.navigate("Guess", { number });
     } else {
       Alert.alert("Invalid Number", "Text a Number Between 0 and 100", [
         { text: "Ok", style: "cancel", onPress: clearNumber },
@@ -42,7 +43,7 @@ export default function GameScreen() {
           <Title />
         </View>
         <View style={styles.start}>
-          <TouchableOpacity style={styles.clear} onPress={clearNumber}>
+          <TouchableOpacity style={styles.clear} onPress={[clearNumber]}>
             <Text>Clear</Text>
           </TouchableOpacity>
           <TextInput
